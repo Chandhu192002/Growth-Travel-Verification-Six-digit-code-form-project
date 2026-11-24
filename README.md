@@ -60,4 +60,8 @@ Layout: no horizontal overflow at any tested width; all six fields on one row. F
 ## Additional evidence and manual test tracking
 See [`EVIDENCE_GUIDE.md`](EVIDENCE_GUIDE.md) for the evidence inventory and [`TEST_RESULTS.md`](TEST_RESULTS.md) for a clear separation between the Chromium automated results recorded above and additional manual Firefox checks reported by the user. User-supplied browser screenshots are stored in `Evidence/Manual_Browser/`.
 
-Manual Firefox update (2026-11-24): the user reported that letter rejection and special-character rejection passed. Invalid clipboard paste (`1e2`), multi-digit paste (`12`), keyboard navigation, exact Firefox version and viewport still need confirmation. Safari, real-device mobile keyboard and screen-reader testing remain not tested.
+Manual Firefox update (2026-11-24): the user reported that letter rejection and special-character rejection passed. Invalid clipboard paste (`1e2`), multi-digit paste (`12`), keyboard navigation, exact Firefox version and viewport still need confirmation. Safari, real-device mobile keyboard and screen-reader testing remain not tested.    
+
+
+
+ https://chandhu192002.github.io/Growth-Travel-Verification-Six-digit-code-form-project/
