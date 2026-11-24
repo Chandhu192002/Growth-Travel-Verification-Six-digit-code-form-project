@@ -1,67 +1,136 @@
-# Six-Digit Verification Screen - Growth Travel Agency India
+# Growth Travel Verification – Six-Digit Code Form
 
-Responsive vanilla HTML/CSS/JS verification-code input. It performs **format validation only**: it never claims authentication succeeded, and no code is transmitted, logged or stored.
+A responsive six-digit verification code form designed to provide a simple and user-friendly verification experience across desktop and mobile devices.
 
-## Run locally
-No install or build. Open `index.html` in a browser (or `python3 -m http.server` in this folder and visit `http://localhost:8000`).
+## 🌐 Live Demo
 
-Files: `index.html`, `style.css` (external only), `script.js` (external only), `assets/growth-travel.svg`, `Evidence/`.
+**Live Website:**  
+https://chandhu192002.github.io/Growth-Travel-Verification-Six-digit-code-form-project/
 
-## State logic
-- One validator, `isCodeValid()`: true only when all six inputs each hold exactly one ASCII digit `0-9`. Values are six strings, so leading zeros survive (`012345`).
-- `updateButtonState()` is the only place the **real `disabled` attribute** is set/removed. It runs after every accepted, rejected or deleted edit, so disabled is restored immediately when a digit is deleted.
-- Typing/paste is intercepted in `beforeinput` (with an `input` fallback for mobile keyboards). Letters, spaces, `.`, `e`, and multi-character pastes (`1e2`, `12`) are rejected whole; the field keeps its previous valid digit, is marked `aria-invalid`, and the error shows. Nothing is distributed across fields.
-- Error message: persistent `<p id="code-error" role="alert">` filled via `textContent`; valid message in `<p id="code-status" role="status">`. Both are referenced by the code group's `aria-describedby`.
-- `form` has `novalidate`; the submit handler re-checks validity (guard) and calls `preventDefault()` always. No `alert/confirm/prompt`.
+**GitHub Repository:**  
+https://github.com/Chandhu192002/Growth-Travel-Verification-Six-digit-code-form-project
 
-## Reproduce the error paths while Verify is disabled
-Verify never gets enabled to show an error. Use:
-1. **Incomplete, Enter:** click field 1, type `12`, press Enter -> red error, button stays disabled.
-2. **Incomplete, blur:** click any field, then click outside the group (or Tab out) -> same error.
-3. **Non-numeric:** type `a`, space or `.` into a field, or paste `1e2` / `12` -> field rejected, red error.
-4. **Submit guard:** in DevTools run `document.getElementById('verify-form').requestSubmit()` with an incomplete code -> blocked, same error.
-5. **Restoration:** type `012345` (button enabled, error cleared), press Verify (status "Code format is valid."), then Backspace in any field -> disabled attribute returns immediately.
+---
 
-## Actual test results
-Tested **2026-11-24**, **Chromium 157.0.8103.78** (headless, Playwright, Linux), automated script. Viewports: 1440x900, 375x812, 768x1024, 320x568, 360x300 (short height).
+## 📌 Project Overview
 
-| ID | Result | Observed |
-|----|--------|----------|
-| T01 | Pass | Six empty fields, `disabled` present, no error at load |
-| T02 | Pass | Focus then leave empty group -> error, button disabled |
-| T03 | Pass | `1`,`2` + Enter -> error, no navigation, disabled |
-| T04 | Pass | `a` rejected, field 3 stays empty and `aria-invalid=true`, error shown |
-| T05 | Pass | Paste `1e2` rejected entirely, nothing entered |
-| T06 | Pass | Space and `.` rejected, error shown |
-| T07 | Pass | `012345` accepted, leading zero kept, `disabled` removed, error cleared |
-| T08 | Pass | Verify -> "Code format is valid.", no navigation |
-| T09 | Pass | Deleting one digit restored `disabled` immediately; error after blur |
-| T10 | Pass | Paste `12` rejected, not distributed, not submitted |
-| T11 | Pass | Tab order digit-1..6 then Verify; 3px solid focus outline; labels "Digit 1".."Digit 6"; `aria-describedby="code-hint code-error code-status"` |
-| T12 | Pass | No dialogs, no non-file network requests, localStorage/sessionStorage/cookies empty, no inline styles/handlers/libraries in source; `requestSubmit()` guard blocked invalid submit and showed the error |
+The Growth Travel Verification project demonstrates a six-digit verification code input interface with client-side validation, user feedback, and responsive design.
 
-Layout: no horizontal overflow at any tested width; all six fields on one row. Fields 50x56 (desktop/768), 42x56 (375, card 343px), ~33-40px wide at 320/360.
+Users can enter a six-digit numeric verification code. The interface validates the input and enables the verification action when the entered code meets the required format.
 
-### Not tested (be aware)
-- Only Chromium was used; Firefox, Safari and real iOS/Android keyboards were **not** tested. The `input` fallback exists for mobile IMEs but is unverified on devices.
-- Paste tests dispatch synthetic paste/`beforeinput` events rather than real clipboard use.
-- No screen-reader run; live-region/label wiring was checked in the DOM only.
+**Note:** This project demonstrates front-end validation. It does not implement actual OTP generation, delivery, or server-side authentication.
 
-## Evidence (`Evidence/`, screenshots of this implementation)
-- `00_empty_disabled_1440.png` - initial state, desktop
-- `01_empty_disabled_375.png` - initial state, mobile
-- `02_incomplete_error_375.png` - error after incomplete Enter
-- `03_nonnumeric_error_375.png` - error after non-numeric attempt
-- `04_valid_enabled_375.png` - valid, Verify enabled
-- `05_valid_status_375.png` - after activating Verify
-- `06_disabled_restored_375.png` - disabled restored after deleting a digit
-- `07_incomplete_error_1440.png` - error, desktop
+## ✨ Key Features
 
-## Additional evidence and manual test tracking
-See [`EVIDENCE_GUIDE.md`](EVIDENCE_GUIDE.md) for the evidence inventory and [`TEST_RESULTS.md`](TEST_RESULTS.md) for a clear separation between the Chromium automated results recorded above and additional manual Firefox checks reported by the user. User-supplied browser screenshots are stored in `Evidence/Manual_Browser/`.
+- Six-digit verification code input.
+- Numeric input validation.
+- Validation for incomplete and invalid entries.
+- Paste input handling.
+- Verification button enabled only when the input is valid.
+- Clear validation feedback and status messages.
+- Responsive layout for desktop and mobile screens.
+- Mobile-friendly user interface.
+- Keyboard navigation support.
 
-Manual Firefox update (2026-11-24): the user reported that letter rejection and special-character rejection passed. Invalid clipboard paste (`1e2`), multi-digit paste (`12`), keyboard navigation, exact Firefox version and viewport still need confirmation. Safari, real-device mobile keyboard and screen-reader testing remain not tested.    
+## 🛠️ Technologies Used
 
+| Technology | Purpose |
+|---|---|
+| HTML5 | Page structure |
+| CSS3 | Styling and responsive layout |
+| JavaScript | Input validation and interactions |
+| Git & GitHub | Version control and hosting |
+| GitHub Pages | Website deployment |
 
+## 📱 Responsive Compatibility
 
- https://chandhu192002.github.io/Growth-Travel-Verification-Six-digit-code-form-project/
+- Desktop browsers
+- Mobile browsers
+- Android mobile devices
+
+## 🧪 Testing Results
+
+| Testing Area | Result |
+|---|---|
+| Desktop Chrome testing | PASS |
+| Firefox manual testing | PASS for documented test cases |
+| Android mobile testing | PASS (user-confirmed) |
+| Responsive layout testing | PASS |
+| Empty input validation | PASS |
+| Incomplete input validation | PASS |
+| Non-numeric input validation | PASS |
+| Valid six-digit input state | PASS |
+
+**Android Testing:** Successful testing was confirmed by the user. Device model, Android version, browser version, and individual test evidence have not yet been documented.
+
+**Firefox Testing:** Letter rejection and special-character rejection were reported as passed. Invalid clipboard paste (`1e2`), multi-digit paste (`12`), and keyboard navigation still require confirmation.
+
+**Not tested:** Safari, real-device mobile keyboard behavior, and screen-reader testing.
+
+Refer to [TEST_RESULTS.md](TEST_RESULTS.md) for detailed testing information.
+
+## 📂 Project Structure
+
+```text
+Growth-Travel-Verification/
+│
+├── index.html
+├── style.css
+├── script.js
+│
+├── assets/
+│   └── growth-travel.svg
+│
+├── Evidence/
+│   └── Testing screenshots
+│
+├── README.md
+├── TEST_RESULTS.md
+├── EVIDENCE_GUIDE.md
+└── COMPLETION_NOTE.txt
+```
+
+## 🚀 Run Locally
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/Chandhu192002/Growth-Travel-Verification-Six-digit-code-form-project.git
+```
+
+2. Open the project directory:
+
+```bash
+cd Growth-Travel-Verification-Six-digit-code-form-project
+```
+
+3. Open `index.html` in your browser.
+
+No additional dependencies or build tools are required.
+
+## 📸 Evidence and Documentation
+
+- [Testing Results](TEST_RESULTS.md)
+- [Evidence Guide](EVIDENCE_GUIDE.md)
+- [Completion Note](COMPLETION_NOTE.txt)
+
+Screenshots and supporting evidence are available in the `Evidence/` directory.
+
+## 🚀 Deployment
+
+The project is hosted using GitHub Pages.
+
+**Deployment URL:**  
+https://chandhu192002.github.io/Growth-Travel-Verification-Six-digit-code-form-project/
+
+## ✅ Project Status
+
+- **Project:** Completed
+- **GitHub Upload:** Successful
+- **GitHub Pages Deployment:** Published
+- **Android Testing:** PASS (user-confirmed)
+- **Documentation:** Updated
+
+---
+
+**Developed as a Growth Travel Verification six-digit code form project.**
