@@ -1,0 +1,43 @@
+GROWTH TRAVEL AGENCY INDIA — COMPLETION NOTE
+Job ID: nx34zS5mJMYfCaQu448W
+
+Project: Responsive six-digit verification input screen
+Implementation: Vanilla HTML, CSS and JavaScript
+
+GitHub repository URL: [PASTE YOUR ACTUAL PUBLIC/REVIEWER-ACCESSIBLE REPOSITORY URL]
+README URL: [PASTE YOUR ACTUAL REPOSITORY README URL]
+Evidence folder: Evidence/
+Evidence guide: EVIDENCE_GUIDE.md
+Test results: TEST_RESULTS.md
+
+Implementation evidence included:
+- Evidence/00_empty_disabled_1440.png
+- Evidence/01_empty_disabled_375.png
+- Evidence/02_incomplete_error_375.png
+- Evidence/03_nonnumeric_error_375.png
+- Evidence/04_valid_enabled_375.png
+- Evidence/05_valid_status_375.png
+- Evidence/06_disabled_restored_375.png
+- Evidence/07_incomplete_error_1440.png
+
+Additional user-supplied browser screenshots:
+- Evidence/Manual_Browser/user-supplied-01.png through user-supplied-09.png
+
+Testing summary:
+- The reviewed README records T01–T12 automated tests passing in Chromium 157.0.8103.78 on 2026-11-24, across the viewports documented in README.md.
+- The user additionally reported Firefox letter rejection and special-character rejection passing on 2026-11-24. Firefox version and viewport were not recorded.
+- Firefox invalid-paste and multi-digit-paste tests remain to be confirmed.
+
+Unresolved / not tested:
+- Safari: not tested; no Apple device available.
+- Real Android/iOS keyboard behavior: not tested.
+- Screen-reader run: not tested.
+- Firefox version/viewport and remaining manual cases: record after testing.
+- GitHub URL and reviewer access must be verified and inserted above before sharing this note.
+
+Scope note: This project validates six-digit numeric format only. It does not authenticate a user or verify an OTP against a backend.
+
+Submission date: 24 November 2026
+
+Additional browser evidence (24-Nov-2026): Firefox About page screenshot records Mozilla Firefox 161.0 (64-bit), shown as up to date. See Evidence/Manual_Browser/Firefox_2026-11-24/.
+T05 invalid clipboard paste, T10 multi-digit paste, and T11 keyboard navigation remain to be explicitly verified and recorded. The new screenshots are supporting evidence only and are not automatic pass results.

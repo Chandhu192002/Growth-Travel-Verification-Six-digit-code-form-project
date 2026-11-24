@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Enter your verification code | Growth Travel Agency India</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+    <section class="card">
+      <img class="logo" src="assets/growth-travel.svg" alt="Growth Travel Agency India" width="300" height="54">
+
+      <p class="eyebrow">CUSTOMER PORTAL</p>
+      <h1>Enter your verification code</h1>
+      <p class="instruction">Use the 6-digit code for your sign-in.</p>
+      <p class="hint" id="code-hint">Digits 0-9 only.</p>
+
+      <!-- novalidate: custom DOM feedback replaces browser validation bubbles -->
+      <form id="verify-form" novalidate autocomplete="off">
+        <fieldset class="code-group" id="code-group" aria-describedby="code-hint code-error code-status">
+          <legend class="visually-hidden">Verification code</legend>
+          <div class="code-row">
+            <label class="visually-hidden" for="digit-1">Digit 1</label>
+            <input class="code-input" id="digit-1" type="text" inputmode="numeric" maxlength="1" autocomplete="off">
+            <label class="visually-hidden" for="digit-2">Digit 2</label>
+            <input class="code-input" id="digit-2" type="text" inputmode="numeric" maxlength="1" autocomplete="off">
+            <label class="visually-hidden" for="digit-3">Digit 3</label>
+            <input class="code-input" id="digit-3" type="text" inputmode="numeric" maxlength="1" autocomplete="off">
+            <label class="visually-hidden" for="digit-4">Digit 4</label>
+            <input class="code-input" id="digit-4" type="text" inputmode="numeric" maxlength="1" autocomplete="off">
+            <label class="visually-hidden" for="digit-5">Digit 5</label>
+            <input class="code-input" id="digit-5" type="text" inputmode="numeric" maxlength="1" autocomplete="off">
+            <label class="visually-hidden" for="digit-6">Digit 6</label>
+            <input class="code-input" id="digit-6" type="text" inputmode="numeric" maxlength="1" autocomplete="off">
+          </div>
+        </fieldset>
+
+        <!-- Persistent message elements; text is set from script.js -->
+        <div class="messages">
+          <p class="message error" id="code-error" role="alert"></p>
+          <p class="message status" id="code-status" role="status"></p>
+        </div>
+
+        <button class="verify" id="verify-button" type="submit" disabled>Verify</button>
+      </form>
+
+      <p class="note">Do not share your verification code.</p>
+    </section>
+  </main>
+  <footer class="footer">&copy; 2026 Growth Travel Agency India</footer>
+  <script src="script.js"></script>
+</body>
+</html>
